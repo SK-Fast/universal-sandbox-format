@@ -49,7 +49,7 @@ function fromUniversal(u) {
           </color>
           <boolean name="Anchored">${part.anchored ?? true}</boolean>
           <boolean name="CanCollide">${part.canCollide ?? true}</boolean>
-          <boolean name="IsSpawn">${part.spawn ?? false}</boolean>
+          <boolean name="IsSpawn">${part.flags.includes("spawn") ? true : false}</boolean>
           <boolean name="HideStuds">true</boolean>
           <int name="Shape">${shapesEnum[part.shape] ?? 0}</int>
           <int name="Material">14</int>
@@ -94,7 +94,7 @@ function fromUniversal(u) {
           </vector3>
           <string name="Name">${part.name ?? "Brick"}</string>
         </Properties>
-      </Item>${additionalItem}`
+      </Item>`
   }
 
   // End of file

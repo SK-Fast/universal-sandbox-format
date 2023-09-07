@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "watchify": "^4.0.0"
+    "pako": "^2.1.0",
+    "watchify": "^4.0.0",
+    "zlibjs": "^0.3.1"
   }
 }

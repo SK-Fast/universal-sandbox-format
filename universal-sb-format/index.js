@@ -26,8 +26,8 @@ const convertFile = async () => {
         dataFeed = textDec.decode(sourceBuffer)
     }
 
-    const uni = fromModule.toUniversal(dataFeed)
-    const converted = toModule.fromUniversal(uni)
+    const uni = await fromModule.toUniversal(dataFeed)
+    const converted = await toModule.fromUniversal(uni)
 
     // prompt save
     const link = document.createElement("a")
@@ -56,6 +56,22 @@ const handleFileSelect = (event) => {
 
     let reader = new FileReader();
     reader.onload = (function (theFile) {
+        const fileExt = "." + theFile.name.split('.').slice(-1)
+
+        let foundExt = false
+        
+        for (const [k,v] of Object.entries(formats)) {
+            if (v.metadata.fileExtension == fileExt) {
+                fromFormatOption.value = k
+                foundExt = true
+            }
+        }
+
+        if (!foundExt) {
+            alert(`The ${fileExt} file format is not supported.`)
+            return
+        }
+
         return function (e) {
             sourceBuffer = e.target.result
         };
