@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "devpixels-portfolio"
+  },
+  "targets": {
+    "devpixels-portfolio": {
+      "hosting": {
+        "universal-sb": [
+          "universal-sb"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
