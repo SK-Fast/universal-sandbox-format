@@ -1,0 +1,16 @@
+{
+  "name": "universal-sandbox-format",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify universal-sb-format/index.js -o bundle.js",
+    "dev": "watchify universal-sb-format/index.js -o bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "watchify": "^4.0.0"
+  }
+}

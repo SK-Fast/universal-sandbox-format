@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+
+<body class="p-4">
+    <h1>universal sandbox format</h1>
+
+    <div class="col-md-3">
+        <div class="d-flex">
+            <select id="from-format" class="form-control">
+                
+            </select>
+
+            <p class="ms-2 me-2">to</p>
+
+            <select id="to-format" class="form-control">
+
+            </select>
+        </div>
+
+        <label>Source file:</label>
+        <input type="file" id="place-choose" class="form-control">
+    </div>
+    <button class="btn btn-primary mt-2" id="convert-btn">Convert</button>
+    <div class="alert alert-warning col-md-4 mt-2">
+        <h5>What's this?</h5>
+        <p class="m-0">This is a sandbox(roblox alternatives) file converter. It supports converting (most)sandbox workshop's format.
+    </div>
+    <div class="alert alert-primary col-md-4 mt-2">
+        <h5>Note!</h5>
+        <ul>
+            <li>This was meant to convert bricks(aka parts) only. Scripts and other will not be included</li>
+        </ul>
+    </div>
+</body>
+
+<script src="bundle.js" defer></script>
+</body>
+
+</html>
