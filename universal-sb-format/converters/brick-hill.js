@@ -5,7 +5,7 @@ const metadata = {
     supportedVersion: `^0.2.0.0`,
     fileExtension: `.brk`,
     fileType: "text",
-    note: "- Rotation will not work because Brick Hill does not support it."
+    toNote: "- Rotation will not work because Brick Hill does not support it."
 }
 
 function txt2RGB(txt) {

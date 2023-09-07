@@ -6,7 +6,7 @@ const metadata = {
     supportedVersion: `^15`,
     fileExtension: `.wtbmap`,
     fileType: "text",
-    note: "- If you're converting World To Build to something else, locate the .wtbmap file in maps folder<br>- Converting from World To Build will not export the Designs<br>- Spawnpoints is not supported yet"
+    toNote: "- You can locate the .wtbmap file in maps folder<br>- Converting from World To Build will not export the Designs<br>- Spawnpoints is not supported yet"
 }
 
 function fromUniversal(u) {

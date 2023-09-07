@@ -6875,7 +6875,7 @@ const metadata = {
     supportedVersion: `^0.2.0.0`,
     fileExtension: `.brk`,
     fileType: "text",
-    note: "- Rotation will not work because Brick Hill does not support it."
+    toNote: "- Rotation will not work because Brick Hill does not support it."
 }
 
 function txt2RGB(txt) {
@@ -7243,7 +7243,7 @@ const metadata = {
     supportedVersion: `^15`,
     fileExtension: `.wtbmap`,
     fileType: "text",
-    note: "- If you're converting World To Build to something else, locate the .wtbmap file in maps folder<br>- Converting from World To Build will not export the Designs<br>- Spawnpoints is not supported yet"
+    toNote: "- You can locate the .wtbmap file in maps folder<br>- Converting from World To Build will not export the Designs<br>- Spawnpoints is not supported yet"
 }
 
 function fromUniversal(u) {
