@@ -270,7 +270,7 @@ function toUniversal(dataRaw) {
                 wtbV3ToData(transformComponent.properties.find((e) => e.$type == "WProperty_TransformSize, Assembly-CSharp").data),
                 wtbV3ToData(transformComponent.properties.find((e) => e.$type == "WProperty_TransformRotation, Assembly-CSharp").data),
                 wtbColorToData(blockRenderer.properties.find((e) => e.$type == "WProperty_BlockRendererColor, Assembly-CSharp").data),
-                1 - transformComponent.properties.find((e) => e.$type == "WProperty_BlockRendererTransparency, Assembly-CSharp").data,
+                1 - transformComponent.properties.find((e) => e.$type == "WProperty_BlockRendererTransparency, Assembly-CSharp")?.data ?? 0,
                 "brick"
             )
         }
