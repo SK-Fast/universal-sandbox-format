@@ -10,7 +10,7 @@ Convert builds between sandbox clones.
 
 </center>
 
-test it out [here](https://universal-sb.devpixels xyz)
+test it out [here](https://universal-sb.devpixels.xyz)
 
 This is a sandbox(roblox alternatives) file converter. It supports converting sandbox workshop's format to another, and vice versa.
 
