@@ -8,12 +8,18 @@ const formats = {
     pt: require('./converters/polytoria.js'),
     bh: require('./converters/brick-hill.js'),
     worldtobuild: require('./converters/worldtobuild.js'),
+    godot: require('./converters/godot.js'),
 }
 
 for (const [k, v] of Object.entries(formats)) {
     const option = `<option value=${k}>${v.metadata.platformName} ${v.metadata.supportedVersion} (${v.metadata.fileExtension})</option>`
-    fromFormatOption.innerHTML += option
-    toFormatOption.innerHTML += option
+    if (v['toUniversal']) {
+        fromFormatOption.innerHTML += option
+    }
+
+    if (v['fromUniversal']) {
+        toFormatOption.innerHTML += option
+    }
 }
 
 const convertFile = async () => {

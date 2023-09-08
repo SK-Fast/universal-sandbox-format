@@ -159,6 +159,7 @@
     "url": "^0.11.1",
     "util": "^0.12.5",
     "util-deprecate": "^1.0.2",
+    "uuid": "^9.0.0",
     "vm-browserify": "^1.1.2",
     "watchify": "^4.0.0",
     "which-typed-array": "^1.1.11",
@@ -166,7 +167,6 @@
     "xtend": "^4.0.2",
     "zlibjs": "^0.3.1"
   },
-  "devDependencies": {},
   "scripts": {
     "deploy": "npm run build && firebase deploy",
     "build": "npm install && browserify public/universal-sb-format/index.js -o public/bundle.js",
