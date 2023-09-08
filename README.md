@@ -1,4 +1,4 @@
-<center>
+<div align="center">
 
 <img src="logo.png" height="300">
 
@@ -9,7 +9,7 @@ Convert builds between sandbox clones.
 
 ---
 
-</center>
+</div>
 
 This is a sandbox(roblox alternatives) file converter. It supports converting sandbox workshop's format to another, and vice versa.
 
