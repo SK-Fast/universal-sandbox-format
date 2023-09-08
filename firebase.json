@@ -1,12 +1,11 @@
 {
-    "hosting": {
-      "target": "universal-sb",
-      "public": "public",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
-    }
+  "hosting": {
+    "target": "universal-sb",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
-  
+}
