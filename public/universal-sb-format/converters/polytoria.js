@@ -47,8 +47,8 @@ function fromUniversal(u) {
             <B>${part.color.b ?? 1}</B>
             <A>${part.opacity ?? 1}</A>
           </color>
-          <boolean name="Anchored">${part.anchored ?? true}</boolean>
-          <boolean name="CanCollide">${part.canCollide ?? true}</boolean>
+          <boolean name="Anchored">${part.flags.includes("anchored") ? true : false}</boolean>
+          <boolean name="CanCollide">${part.flags.includes("no_collision") ? false : true}</boolean>
           <boolean name="IsSpawn">${part.flags.includes("spawn") ? true : false}</boolean>
           <boolean name="HideStuds">true</boolean>
           <int name="Shape">${shapesEnum[part.shape] ?? 0}</int>
@@ -192,7 +192,7 @@ function getAlphaFromColor(raw) {
 }
 
 function toUniversal(dataRaw) {
-  const result = uF.createUniversal()
+  const result = uF.createUniversal("polytoria")
 
   let parser = new DOMParser();
   let xmlDoc = parser.parseFromString(dataRaw, "text/xml");
@@ -206,8 +206,16 @@ function toUniversal(dataRaw) {
 
     const flags = []
 
-    if (properties.querySelector('*[name="IsSpawn"]') == "true") {
+    if (properties.querySelector('*[name="IsSpawn"]').innerHTML == "true") {
       flags.push("spawn")
+    }
+
+    if (properties.querySelector('*[name="Anchored"]').innerHTML == "true") {
+      flags.push("anchored")
+    }
+
+    if (properties.querySelector('*[name="CanCollide"]').innerHTML == "false") {
+      flags.push("no_collision")
     }
 
     result.addPart(

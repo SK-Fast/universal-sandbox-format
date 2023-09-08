@@ -42,7 +42,7 @@ function fromUniversal(u) {
 
 function toUniversal(dataRaw) {
     const data = dataRaw.split('\n')
-    const result = uF.createUniversal()
+    const result = uF.createUniversal("brickhill")
 
     let i = 1
 

@@ -1,11 +1,12 @@
-function createUniversal() {
-    return new UniversalSBFormat()
+function createUniversal(origin) {
+    return new UniversalSBFormat(origin)
 }
 
 class UniversalSBFormat {
+    originPlatform = "universal-sb-format"
     parts = []
-    constructor() {
-
+    constructor(origin) {
+        this.originPlatform = origin
     }
 
     addPart(name, pos, size, rot, color, opacity, shape, flags) {
@@ -15,8 +16,8 @@ class UniversalSBFormat {
             size,
             rot,
             color,
-            opacity,
-            shape,
+            opacity: opacity ?? 1,
+            shape: shape ?? "brick",
             flags: flags || []
         })
     }
@@ -45,6 +46,15 @@ class Color3 {
     get hex() {
         return rgbToHex(parseFloat(this.r) * 255, parseFloat(this.g) * 255, parseFloat(this.b) * 255)
     }
+
+    toJSON() {
+		return {
+			r: this.r,
+			g: this.g,
+			b: this.b,
+			hex: this.hex,
+		};
+	}
 }
 
 module.exports = {

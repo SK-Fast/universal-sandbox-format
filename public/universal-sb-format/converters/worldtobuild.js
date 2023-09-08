@@ -251,7 +251,7 @@ function toUniversal(dataRaw) {
     const strData = new TextDecoder().decode(pako.ungzip(gzipedDataArray));
     const data = JSON.parse(strData);
 
-    const result = uF.createUniversal()
+    const result = uF.createUniversal("worldtobuild")
 
     for (const object of data.wObjects) {
         const components = object.components
