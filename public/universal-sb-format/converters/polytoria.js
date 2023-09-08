@@ -211,7 +211,7 @@ function toUniversal(dataRaw) {
     }
 
     result.addPart(
-      properties.querySelector('*[name="Name"]').innerHTML ?? "Part",
+      properties.querySelector('*[name="Name"]').innerHTML?.replace('"', '').replace('"', '') ?? "Part",
       vector3ToData(properties.querySelector('*[name="Position"]')),
       vector3ToData(properties.querySelector('*[name="Size"]')),
       vector3ToData(properties.querySelector('*[name="Rotation"]')),

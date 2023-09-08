@@ -8,7 +8,6 @@ const formats = {
     pt: require('./converters/polytoria.js'),
     bh: require('./converters/brick-hill.js'),
     worldtobuild: require('./converters/worldtobuild.js'),
-    godot: require('./converters/godot.js'),
 }
 
 for (const [k, v] of Object.entries(formats)) {
