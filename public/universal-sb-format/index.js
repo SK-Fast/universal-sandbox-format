@@ -16,6 +16,7 @@ for (const [k, v] of Object.entries(formats)) {
     const option = `<option value=${k}>${v.metadata.platformName} ${v.metadata.supportedVersion} (${v.metadata.fileExtension})</option>`
     if (v['toUniversal']) {
         fromFormatOption.innerHTML += option
+        fileUploadField.accept += `${v.metadata.fileExtension},`
     }
 
     if (v['fromUniversal']) {
