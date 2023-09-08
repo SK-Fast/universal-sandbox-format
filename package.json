@@ -149,6 +149,8 @@
     "subarg": "^1.0.0",
     "supports-preserve-symlinks-flag": "^1.0.0",
     "syntax-error": "^1.4.0",
+    "three": "^0.156.1",
+    "three-gltf-exporter": "^0.0.1",
     "through": "^2.3.8",
     "through2": "^4.0.2",
     "timers-browserify": "^1.4.2",

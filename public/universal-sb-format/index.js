@@ -9,6 +9,7 @@ const formats = {
     bh: require('./converters/brick-hill.js'),
     worldtobuild: require('./converters/worldtobuild.js'),
     bp: require('./converters/brickplanet.js'),
+    gltf: require('./converters/gltf.js'),
     usbf: require('./converters/universal.js'),
 }
 
@@ -36,10 +37,19 @@ const convertFile = async () => {
 
     const uni = await fromModule.toUniversal(dataFeed)
     const converted = await toModule.fromUniversal(uni)
+    let dataType = "text/plain"
+
+    if (toModule.metadata.fileType == "binary") {
+        dataType = "application/octet-stream"
+    }
+
+    if (toModule.metadata.fileType == "json") {
+        dataType = "application/json"
+    }
 
     // prompt save
     const link = document.createElement("a")
-    const file = new Blob([converted], { type: 'text/plain' })
+    const file = new Blob([converted], { type: dataType })
     link.href = URL.createObjectURL(file)
     link.download = `converted${toModule.metadata.fileExtension}`
     link.click()
