@@ -101,3 +101,5 @@ const handleFileSelect = (event) => {
 
 convertBtn.addEventListener("click", () => { convertFile() })
 fileUploadField.addEventListener("change", handleFileSelect)
+
+document.querySelector("#loadingNotice").remove()
