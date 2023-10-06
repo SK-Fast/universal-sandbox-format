@@ -6,7 +6,7 @@ const metadata = {
     supportedVersion: `^15`,
     fileExtension: `.wtbmap`,
     fileType: "text",
-    toNote: "- You can locate the .wtbmap file in maps folder<br>- Converting from World To Build will not export the Designs<br>- Spawnpoints is not supported yet"
+    toNote: "- You can locate the .wtbmap file in maps folder<br>- Converting from World To Build will not export the Designs<br>- Spawnpoints is not supported yet<br>- Converting to WorldToBuild will reduce the part size by half"
 }
 
 function fromUniversal(u) {
@@ -105,6 +105,20 @@ function fromUniversal(u) {
     }
 
     for (const part of u.parts) {
+        let additonalComponents = []
+        
+        if (part.flags.includes("spawn")) {
+            additonalComponents.push({
+                "$type": "WComponent_Respawn, Assembly-CSharp",
+                "properties": [
+                    {
+                        "$type": "WProperty_RespawnEnabled Assembly-CSharp",
+                        "data": "true"
+                    },
+                ]
+            })
+        }
+
         baseJSON.wObjects.push({
             "v": 1,
             "components": [
@@ -138,11 +152,11 @@ function fromUniversal(u) {
                     "properties": [
                         {
                             "$type": "WProperty_TransformSize, Assembly-CSharp",
-                            "data": `{"x":${part.size.x ?? 0},"y":${part.size.y ?? 0},"z":${part.size.z ?? 0}}`
+                            "data": `{"x":${part.size.x / 2 ?? 0},"y":${part.size.y / 2 ?? 0},"z":${part.size.z / 2 ?? 0}}`
                         },
                         {
                             "$type": "WProperty_TransformPosition, Assembly-CSharp",
-                            "data": `{"x":${part.pos.x ?? 0},"y":${part.pos.y ?? 0},"z":${part.pos.z ?? 0}}`
+                            "data": `{"x":${part.pos.x / 2 ?? 0},"y":${part.pos.y / 2 ?? 0},"z":${part.pos.z / 2 ?? 0}}`
                         },
                         {
                             "$type": "WProperty_TransformRotation, Assembly-CSharp",

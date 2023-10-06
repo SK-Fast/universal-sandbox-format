@@ -1,0 +1,17 @@
+{
+  "name": "rbxlx",
+  "version": "1.0.1",
+  "description": "A .rbxlx file parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./tests/index.js"
+  },
+  "author": "Jhxan",
+  "license": "MIT",
+  "dependencies": {
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "fs": "0.0.1-security"
+  }
+}

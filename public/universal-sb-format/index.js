@@ -8,6 +8,7 @@ const formats = {
     pt: require('./converters/polytoria.js'),
     bh: require('./converters/brick-hill.js'),
     worldtobuild: require('./converters/worldtobuild.js'),
+    roblox: require('./converters/roblox.js'),
     bp: require('./converters/brickplanet.js'),
     gltf: require('./converters/gltf.js'),
     usbf: require('./converters/universal.js'),
