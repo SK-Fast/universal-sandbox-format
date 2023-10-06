@@ -1472,4 +1472,4 @@ function toUniversal(dataRaw) {
 }
 */
 
-module.exports = { toUniversal, fromUniversal, metadata }
+module.exports = { fromUniversal, metadata }
