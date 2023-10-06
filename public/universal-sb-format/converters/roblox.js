@@ -1,7 +1,7 @@
 const uF = require('../utils/universal-format.js')
 
 const metadata = {
-    platformName: "Roblox",
+    platformName: "Roblox [HEAVILY WIP]",
     supportedVersion: `^20001c2f99364dfd`,
     fileExtension: `.rbxlx`,
     fileType: "text",
