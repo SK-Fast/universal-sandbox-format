@@ -1,6 +1,3 @@
-const pako = require('pako')
-const uF = require('../utils/universal-format.js')
-
 const metadata = {
     platformName: "Universal Sandbox Format",
     supportedVersion: ``,

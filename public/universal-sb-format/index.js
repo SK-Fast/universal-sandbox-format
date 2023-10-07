@@ -70,17 +70,6 @@ const convertFile = async () => {
     link.download = `converted${toModule.metadata.fileExtension}`
     link.click()
     URL.revokeObjectURL(link.href)
-
-
-        /*
-    var oMyBlob = new Blob(converted, { type: 'text/plain' }); // the blob
-    window.open(URL.createObjectURL(oMyBlob));
-
-    const a = document.getElementById("a");
-    const file = new Blob([converted], {type: "text/plain"});
-    a.href = URL.createObjectURL(file);
-    a.download = `converted${toModule.metadata.fileExtension}`;
-    */
 }
 
 const handleFileSelect = (event) => {
