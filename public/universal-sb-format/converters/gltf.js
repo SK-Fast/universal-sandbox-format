@@ -13,12 +13,15 @@ function rad2Deg(angle) {
 
 function fromUniversal(u) {
   return new Promise((resolve) => {
-    const scene = new THREE.Scene();
+    const scene = new THREE.Scene()
+
+    // Make root environment
     const envRoot = new THREE.Object3D()
 
     envRoot.name = "USBF_Export"
     scene.add(envRoot)
 
+    // Add Parts
     for (const part of u.parts) {
       const geometry = new THREE.BoxGeometry(part.size.x, part.size.y, part.size.z);
       const material = new THREE.MeshStandardMaterial({
@@ -38,6 +41,7 @@ function fromUniversal(u) {
       envRoot.add(cube);
     }
 
+    // Flip Scale
     envRoot.scale.setX(-1)
     envRoot.scale.setY(1)
     envRoot.scale.setZ(1)

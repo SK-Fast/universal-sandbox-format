@@ -10,6 +10,7 @@ const metadata = {
 }
 
 function fromUniversal(u) {
+    // Define Header
     const baseJSON = {
         "version": 15,
         "name": "Map",
@@ -119,6 +120,7 @@ function fromUniversal(u) {
             })
         }
 
+        // Cube object properties
         baseJSON.wObjects.push({
             "v": 1,
             "components": [

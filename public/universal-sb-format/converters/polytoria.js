@@ -39,6 +39,7 @@ function fromUniversal(u) {
   for (const part of u.parts) {
     let additionalItem = ""
 
+    // Part Properties
     data += `<Item class="Part">
         <Properties>
           <color name="Color">
