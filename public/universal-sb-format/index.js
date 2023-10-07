@@ -2,6 +2,7 @@ const convertBtn = document.querySelector("#convert-btn")
 const fromFormatOption = document.querySelector("#from-format")
 const toFormatOption = document.querySelector("#to-format")
 const fileUploadField = document.querySelector("#place-choose")
+const mapstats = document.querySelector("#mapstats")
 let sourceBuffer = {}
 
 const formats = {
@@ -26,18 +27,32 @@ for (const [k, v] of Object.entries(formats)) {
     }
 }
 
+function addToStats(txt) {
+    console.log(txt)
+    mapstats.innerHTML = mapstats.innerHTML + txt + ' | '
+}
+
 const convertFile = async () => {
     const fromModule = formats[fromFormatOption.value]
     const toModule = formats[toFormatOption.value]
     let dataFeed = sourceBuffer
 
+    mapstats.innerHTML = "| "
+
     if (fromModule.metadata.fileType == "text") {
         const textDec = new TextDecoder("utf-8")
         dataFeed = textDec.decode(sourceBuffer)
+        addToStats("datatype: text")
+    } else {
+        addToStats("datatype: binary")
     }
 
     const uni = await fromModule.toUniversal(dataFeed)
+
+    addToStats(`parts: ${uni.parts.length}`)
+
     const converted = await toModule.fromUniversal(uni)
+
     let dataType = "text/plain"
 
     if (toModule.metadata.fileType == "binary") {

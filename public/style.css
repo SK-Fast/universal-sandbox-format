@@ -8,3 +8,9 @@ body {
 input, select, option {
     font-family: 'JetBrains Mono', monospace;
 }
+
+#mapstats {
+    font-size: 16px;
+    margin: 0;
+    margin-top: 5px;
+}
