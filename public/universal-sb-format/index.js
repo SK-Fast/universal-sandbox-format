@@ -33,43 +33,47 @@ function addToStats(txt) {
 }
 
 const convertFile = async () => {
-    const fromModule = formats[fromFormatOption.value]
-    const toModule = formats[toFormatOption.value]
-    let dataFeed = sourceBuffer
+    try {
+        const fromModule = formats[fromFormatOption.value]
+        const toModule = formats[toFormatOption.value]
+        let dataFeed = sourceBuffer
 
-    mapstats.innerHTML = "| "
+        mapstats.innerHTML = "| "
 
-    if (fromModule.metadata.fileType == "text") {
-        const textDec = new TextDecoder("utf-8")
-        dataFeed = textDec.decode(sourceBuffer)
-        addToStats("datatype: text")
-    } else {
-        addToStats("datatype: binary")
+        if (fromModule.metadata.fileType == "text") {
+            const textDec = new TextDecoder("utf-8")
+            dataFeed = textDec.decode(sourceBuffer)
+            addToStats("datatype: text")
+        } else {
+            addToStats("datatype: binary")
+        }
+
+        const uni = await fromModule.toUniversal(dataFeed)
+
+        addToStats(`parts: ${uni.parts.length}`)
+
+        const converted = await toModule.fromUniversal(uni)
+
+        let dataType = "text/plain"
+
+        if (toModule.metadata.fileType == "binary") {
+            dataType = "application/octet-stream"
+        }
+
+        if (toModule.metadata.fileType == "json") {
+            dataType = "application/json"
+        }
+
+        // prompt save
+        const link = document.createElement("a")
+        const file = new Blob([converted], { type: dataType })
+        link.href = URL.createObjectURL(file)
+        link.download = `converted${toModule.metadata.fileExtension}`
+        link.click()
+        URL.revokeObjectURL(link.href)
+    } catch (err) {
+        mapstats.innerHTML = `ERROR: ${err.toString()}`
     }
-
-    const uni = await fromModule.toUniversal(dataFeed)
-
-    addToStats(`parts: ${uni.parts.length}`)
-
-    const converted = await toModule.fromUniversal(uni)
-
-    let dataType = "text/plain"
-
-    if (toModule.metadata.fileType == "binary") {
-        dataType = "application/octet-stream"
-    }
-
-    if (toModule.metadata.fileType == "json") {
-        dataType = "application/json"
-    }
-
-    // prompt save
-    const link = document.createElement("a")
-    const file = new Blob([converted], { type: dataType })
-    link.href = URL.createObjectURL(file)
-    link.download = `converted${toModule.metadata.fileExtension}`
-    link.click()
-    URL.revokeObjectURL(link.href)
 }
 
 const handleFileSelect = (event) => {
@@ -82,8 +86,8 @@ const handleFileSelect = (event) => {
         const fileExt = "." + theFile.name.split('.').slice(-1)
 
         let foundExt = false
-        
-        for (const [k,v] of Object.entries(formats)) {
+
+        for (const [k, v] of Object.entries(formats)) {
             if (v.metadata.fileExtension == fileExt) {
                 fromFormatOption.value = k
                 foundExt = true
